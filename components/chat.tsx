@@ -163,6 +163,15 @@ export function Chat({ onOpenSidebar, sidebarOpen }: ChatProps) {
     }
   }
 
+  const userNames = [
+    "Krishna", "Aarav", "Maya", "Ishaan", "Anaya", "Vivaan", "Diya", "Arjun", "Sara", "Kabir", "Meera", "Rohan", "Aanya", "Dev", "Tara", "Aryan", "Riya", "Yash", "Saanvi", "Aditya"
+  ];
+  const [userName, setUserName] = useState<string>("");
+
+  useEffect(() => {
+    setUserName(userNames[Math.floor(Math.random() * userNames.length)]);
+  }, []);
+
   if (!chatStarted) {
     const suggestions: { icon?: React.ReactNode, label: React.ReactNode, onClick?: () => void }[] = [
       { 
@@ -193,7 +202,7 @@ export function Chat({ onOpenSidebar, sidebarOpen }: ChatProps) {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-6xl font-serif font-bold bg-gradient-to-r from-gray-800 via-gray-900 to-black dark:from-white dark:via-gray-100 dark:to-gray-300 bg-clip-text text-transparent mb-4"
             >
-              Hello Krishna
+              Hello {userName}
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0 }}
