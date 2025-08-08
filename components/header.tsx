@@ -39,13 +39,7 @@ export function Header({ onSidebarToggle, sidebarOpen }: HeaderProps) {
     console.log("Profile clicked")
   }
 
-  const handleSettings = () => {
-    console.log("Settings clicked")
-  }
 
-  const handleSignOut = () => {
-    console.log("Sign out clicked")
-  }
 
   return (
     <header className="flex items-center justify-between px-6 py-3 bg-white dark:bg-[#272728] border-b border-gray-200 dark:border-[#272728]">
@@ -118,14 +112,7 @@ export function Header({ onSidebarToggle, sidebarOpen }: HeaderProps) {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-56 dark:bg-[#232323] dark:text-white">
-            <DropdownMenuItem onClick={handleProfile} className="flex items-center space-x-2">
-              <User className="w-4 h-4" />
-              <span>Profile</span>
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={handleSettings} className="flex items-center space-x-2">
-              <Settings className="w-4 h-4" />
-              <span>Settings</span>
-            </DropdownMenuItem>
+           
             <DropdownMenuSeparator />
             <DropdownMenuItem 
               onClick={toggleTheme}
@@ -144,10 +131,7 @@ export function Header({ onSidebarToggle, sidebarOpen }: HeaderProps) {
               )}
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={handleSignOut} className="flex items-center space-x-2 text-red-600 dark:text-red-400">
-              <LogOut className="w-4 h-4" />
-              <span>Sign Out</span>
-            </DropdownMenuItem>
+            
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

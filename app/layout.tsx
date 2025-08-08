@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: 'Learnt - AI Learning Assistant',
+  title: 'Lurnix - AI Learning Assistant',
   description: 'Your intelligent learning companion',
     generator: 'v0.dev'
 }

@@ -26,6 +26,26 @@ interface Message {
   isTyping?: boolean
 }
 
+function getRandomUsername() {
+  // Pool of short, fun, fictional names (3-6 chars)
+  const names = [
+    "Neo", "Zed", "Lux", "Vex", "Ace", "Sky", "Rex", "Max", "Fox", "Ash", "Jet", "Ray", "Mox", "Hex", "Pip", "Blu", "Ryn", "Sol", "Kai", "Zen", "Myn", "Dex", "Jax", "Taz", "Vyn", "Lyn", "Ryu", "Nox", "Fyn", "Kix"
+  ];
+  let name = names[Math.floor(Math.random() * names.length)];
+  // Optionally add a digit to reach up to 6 chars
+  if (name.length < 6 && Math.random() > 0.5) {
+    name += Math.floor(Math.random() * 10);
+  }
+  // Ensure length is between 3 and 6
+  if (name.length < 3) {
+    name = name.padEnd(3, 'x');
+  }
+  if (name.length > 6) {
+    name = name.slice(0, 6);
+  }
+  return name;
+}
+
 export function Chat({ onOpenSidebar, sidebarOpen }: ChatProps) {
   const [input, setInput] = useState("")
   const [messages, setMessages] = useState<Message[]>([])
@@ -163,14 +183,7 @@ export function Chat({ onOpenSidebar, sidebarOpen }: ChatProps) {
     }
   }
 
-  const userNames = [
-    "Krishna", "Aarav", "Maya", "Ishaan", "Anaya", "Vivaan", "Diya", "Arjun", "Sara", "Kabir", "Meera", "Rohan", "Aanya", "Dev", "Tara", "Aryan", "Riya", "Yash", "Saanvi", "Aditya"
-  ];
-  const [userName, setUserName] = useState<string>("");
-
-  useEffect(() => {
-    setUserName(userNames[Math.floor(Math.random() * userNames.length)]);
-  }, []);
+  const [userName] = useState(() => getRandomUsername());
 
   if (!chatStarted) {
     const suggestions: { icon?: React.ReactNode, label: React.ReactNode, onClick?: () => void }[] = [

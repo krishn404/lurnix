@@ -163,7 +163,7 @@ export function Sidebar({ isOpen, onToggle }: SidebarProps) {
             <div className="flex items-center">
               <Share className="w-4 h-4 mr-2" />
               <div className="text-left">
-                <div className="text-sm font-medium">Share Learnt with a friend</div>
+                <div className="text-sm font-medium">Share Lurnix with a friend</div>
                 <div className="text-xs text-gray-500">Get 500 credits each</div>
               </div>
             </div>
